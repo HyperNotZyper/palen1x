@@ -50,15 +50,15 @@ apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-ce
 
 # Get proper files for amd64 or i686
 if [ "$ARCH" = 'amd64' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.3-x86_64.tar.gz'
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.2-x86_64.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-x86_64'
-if [ "$ARCH" = 'i686' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.3-x86.tar.gz'
+elif [ "$ARCH" = 'i686' ]; then
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.2-x86.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-x86'
-if [ "$ARCH" = 'aarch64' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.3-aarch64.tar.gz'
+elif [ "$ARCH" = 'aarch64' ]; then
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.2-aarch64.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-arm64'
-if
+fi
 
 # Clean up previous attempts
 umount -v work/rootfs/{dev,sys,proc} >/dev/null 2>&1
