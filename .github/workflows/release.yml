@@ -38,8 +38,9 @@ jobs:
 
       - name: Release files to github
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
+          tag_name: v1.0.8
+          prerelease: false
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           name: Latest Palen1x Release
           body: |
