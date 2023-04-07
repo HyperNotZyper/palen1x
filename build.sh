@@ -50,13 +50,13 @@ apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-ce
 
 # Get proper files for amd64 or i686
 if [ "$ARCH" = 'amd64' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.2-x86_64.tar.gz'
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.3-x86_64.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-x86_64'
 elif [ "$ARCH" = 'i686' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.2-x86.tar.gz'
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.3-x86.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-x86'
 elif [ "$ARCH" = 'aarch64' ]; then
-    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.2-aarch64.tar.gz'
+    ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.3-aarch64.tar.gz'
     PALERA1N='https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.5/palera1n-linux-arm64'
 fi
 
@@ -73,9 +73,9 @@ mount -vt sysfs sysfs rootfs/sys
 mount -vt proc proc rootfs/proc
 cp /etc/resolv.conf rootfs/etc
 cat << ! > rootfs/etc/apk/repositories
-http://dl-cdn.alpinelinux.org/alpine/v3.12/main
-http://dl-cdn.alpinelinux.org/alpine/edge/community
-http://dl-cdn.alpinelinux.org/alpine/edge/testing
+https://dl-cdn.alpinelinux.org/alpine/v3.12/main
+https://dl-cdn.alpinelinux.org/alpine/edge/community
+https://dl-cdn.alpinelinux.org/alpine/edge/testing
 !
 
 sleep 2
