@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [ amd64, i686 ]
+        arch: [ amd64, i686, aarch64 ]
     permissions:
       # needed to create release
       contents: write
@@ -41,11 +41,13 @@ jobs:
         with:
           tag_name: v1.0.8
           prerelease: false
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           name: Latest Palen1x Release
           body: |
            palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
            palen1x-i686.iso: palen1x for 32-bit computers
+           palen1x-aarch64.iso: palen1x for 64-bit ARM computers
           files: |
             work/palen1x-amd64.iso
             work/palen1x-i686.iso
+            work/palen1x-aarch64.iso
+            
