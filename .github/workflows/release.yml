@@ -40,6 +40,12 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          name: Latest Palen1x Release
+          body: |
+           palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
+           palen1x-i686.iso: palen1x for 32-bit computers
+           palen1x-aarch64.iso: palen1x for 64-bit ARM computers
           files: |
             work/palen1x-amd64.iso
             work/palen1x-i686.iso
