@@ -26,8 +26,9 @@ while true; do
     '1' 'palera1n' \
     '2' 'SSH' \
     '3' 'Shell' \
-    '4' 'Shut down' \
-    '5' 'Reboot' 3>&1 1>&2 2>&3)"
+    '4' 'Desktop environment' \
+    '5' 'Shut down' \
+    '6' 'Reboot' 3>&1 1>&2 2>&3)"
   case "$CHOICE" in
     1)
       clear
@@ -42,11 +43,15 @@ while true; do
       /bin/bash -i && exit
       ;;
     4)
+      clear
+      
+      ;;
+    5)
       palen1x_logo
       sleep 2
       /sbin/poweroff
       ;;
-    5)
+    6)
       palen1x_logo
       sleep 2
       /sbin/reboot
