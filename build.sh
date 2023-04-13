@@ -45,8 +45,10 @@ until [ "$ARCH" = 'amd64' ] || [ "$ARCH" = 'i686' ] || [ "$ARCH" = 'aarch64' ]; 
 done
 
 # Install dependencies to build palen1x
-apt-get update
+apt-get update -y
 apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
+apt-get update -y
+apt-get upgrade -y # Updating stuff
 
 # Get proper files for amd64 or i686
 if [ "$ARCH" = 'amd64' ]; then
