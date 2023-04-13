@@ -88,6 +88,11 @@ apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
 apk add --no-scripts linux-lts linux-firmware-none
 apk add lxqt-desktop lxqt-core lxqt-panel lxqt-admin lxqt-config lxqt-notificationd lxqt-powermanagement lxqt-themes lximage-qt openbox obconf-qt arandr dbus sddm sddm-openrc
 apk add iwd
+apk add elogind polkit-elogind
+apk add gvfs-smb gvfs-fuse
+apk add fuse-openrc
+apk add gvfs udisks2 ntfs-3g gvfs-archive
+apk add adwaita-icon-theme
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
@@ -95,6 +100,8 @@ rc-update add udev-trigger
 rc-update add udev-settle
 rc-update add dbus
 rc-update add iwd boot && rc-update add dbus boot
+rc-update add fuse
+rc-update add sddm
 !
 
 # kernel modules
