@@ -74,6 +74,7 @@ mount -vt proc proc rootfs/proc
 cp /etc/resolv.conf rootfs/etc
 cat << ! > rootfs/etc/apk/repositories
 https://dl-cdn.alpinelinux.org/alpine/v3.12/main
+https://dl-cdn.alpinelinux.org/alpine/v3.17/main
 https://dl-cdn.alpinelinux.org/alpine/edge/community
 https://dl-cdn.alpinelinux.org/alpine/edge/testing
 !
@@ -85,11 +86,15 @@ apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
 apk add --no-scripts linux-lts linux-firmware-none
+apk add lxqt-desktop lxqt-core lxqt-panel lxqt-admin lxqt-config lxqt-notificationd lxqt-powermanagement lxqt-themes lximage-qt openbox obconf-qt arandr dbus sddm sddm-openrc
+apk add iwd
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
 rc-update add udev-trigger
 rc-update add udev-settle
+rc-update add dbus
+rc-update add iwd boot && rc-update add dbus boot
 !
 
 # kernel modules
