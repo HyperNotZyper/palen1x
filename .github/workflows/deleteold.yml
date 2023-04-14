@@ -1,6 +1,7 @@
 name: Delete old
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
