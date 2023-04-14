@@ -86,7 +86,7 @@ apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
 apk add --no-scripts linux-lts linux-firmware-none
-apk add openbox obconf-qt arandr dbus sddm sddm-openrc
+apk add openbox arandr dbus sddm sddm-openrc
 setup-desktop gnome
 apk add gnome-apps-extra
 apk add pipewire wireplumber gst-plugin-pipewire
