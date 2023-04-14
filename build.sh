@@ -78,7 +78,6 @@ https://dl-cdn.alpinelinux.org/alpine/v3.12/main
 https://dl-cdn.alpinelinux.org/alpine/edge/main
 https://dl-cdn.alpinelinux.org/alpine/edge/community
 https://dl-cdn.alpinelinux.org/alpine/edge/testing
-https://dl-cdn.alpinelinux.org/alpine/edge/releases
 !
 
 sleep 2
