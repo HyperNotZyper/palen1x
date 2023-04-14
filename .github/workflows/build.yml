@@ -5,7 +5,7 @@ on:
   pull_request:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Old Delete"]
+    workflows: ["Delete old"]
     types:
       - completed
 
