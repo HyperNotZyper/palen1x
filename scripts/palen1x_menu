@@ -26,7 +26,7 @@ while true; do
     '1' 'palera1n' \
     '2' 'SSH' \
     '3' 'Shell' \
-    '4' 'Desktop environment (NOT FOR aarch64/arm64)!' \
+    '4' 'Desktop environment' \
     '5' 'Shut down' \
     '6' 'Reboot' 3>&1 1>&2 2>&3)"
   case "$CHOICE" in
