@@ -1,4 +1,4 @@
-name: Old Delete
+name: Delete old
 
 on:
   workflow_dispatch:
