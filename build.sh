@@ -46,9 +46,8 @@ done
 
 # Install dependencies to build palen1x
 apt-get update -y
-apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
-apt-get update -y
 apt-get upgrade -y # Updating stuff
+apt-get install -y --no-install-recommends wget debootstrap mtools xorriso ca-certificates curl libusb-1.0-0-dev gcc make gzip xz-utils unzip libc6-dev
 
 # Get proper files for amd64 or i686
 if [ "$ARCH" = 'amd64' ]; then
@@ -75,7 +74,8 @@ mount -vt sysfs sysfs rootfs/sys
 mount -vt proc proc rootfs/proc
 cp /etc/resolv.conf rootfs/etc
 cat << ! > rootfs/etc/apk/repositories
-https://dl-cdn.alpinelinux.org/alpine/v3.14/main
+https://dl-cdn.alpinelinux.org/alpine/v3.17/main
+https://dl-cdn.alpinelinux.org/alpine/edge/main
 https://dl-cdn.alpinelinux.org/alpine/edge/community
 https://dl-cdn.alpinelinux.org/alpine/edge/testing
 !
