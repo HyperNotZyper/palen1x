@@ -30,17 +30,6 @@ jobs:
         run: |
           sudo -E ./build.sh
 
-      - name: Delete drafts
-        uses: hugo19941994/delete-draft-releases@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: dev-drprasad/delete-older-releases@v0.2.1
-        with:
-         keep_latest: 0
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Draft release
         uses: softprops/action-gh-release@v0.1.15
         with:
