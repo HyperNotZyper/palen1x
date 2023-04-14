@@ -85,7 +85,16 @@ cat << ! | chroot rootfs /usr/bin/env PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbi
 apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
-apk add xfce4 xfce4-terminal xfce4-screensaver lightdm-gtk-greeter dbus
+apk add icu-data-full --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add linux-pam --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add nettle --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add icu-libs --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add libunistring --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add gpg --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add gpg-agent --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add gpgsm --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add lua5.4-libs --update-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/main/ --allow-untrusted
+apk add xfce4 xfce4-terminal xfce4-screensaver lightdm-gtk-greeter dbus lightdm
 apk add elogind polkit-elogind
 apk add --no-scripts linux-lts linux-firmware-none
 apk add openbox arandr dbus sddm sddm-openrc
@@ -144,6 +153,7 @@ cp -av ../inittab rootfs/etc
 cp -v ../scripts/* rootfs/usr/bin
 chmod -v 755 rootfs/usr/local/bin/*
 ln -sv sbin/init rootfs/init
+ln -sv ../../etc/terminfo rootfs/usr/share/terminfo # fix ncurses
 
 # Boot config
 cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
