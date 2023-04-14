@@ -86,7 +86,10 @@ apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
 apk add --no-scripts linux-lts linux-firmware-none
-apk add lxqt-desktop lxqt-core lxqt-panel lxqt-admin lxqt-config lxqt-notificationd lxqt-powermanagement lxqt-themes lximage-qt openbox obconf-qt arandr dbus sddm sddm-openrc
+apk add openbox obconf-qt arandr dbus sddm sddm-openrc
+setup-desktop gnome
+apk add gnome-apps-extra
+apk add pipewire wireplumber gst-plugin-pipewire
 apk add iwd
 apk add elogind polkit-elogind
 apk add gvfs-smb gvfs-fuse
@@ -140,7 +143,6 @@ cp -av ../inittab rootfs/etc
 cp -v ../scripts/* rootfs/usr/bin
 chmod -v 755 rootfs/usr/local/bin/*
 ln -sv sbin/init rootfs/init
-ln -sv ../../etc/terminfo rootfs/usr/share/terminfo # fix ncurses
 
 # Boot config
 cp -av rootfs/boot/vmlinuz-lts iso/boot/vmlinuz
