@@ -35,14 +35,24 @@ jobs:
           cp work/*-${{ matrix.arch }}.iso palen1x
           cp work/iso/boot/initramfs.xz palen1x/initramfs-${{ matrix.arch }}.xz
 
-      - name: Upload artifact to cdn.nickchan.lol
-        uses: wangyucode/sftp-upload-action@v1.4.8
+      - name: Draft release
+        uses: softprops/action-gh-release@v0.1.15
         with:
-          host: ${{ secrets.NICKCHAN_FTP_HOST }}
-          port: ${{ secrets.NICKCHAN_FTP_PORT }}
-          username: palera1n
-          privateKey: ${{ secrets.NICKCHAN_FTP_KEY }}
-          forceUpload: true
-          dryRun: false
-          localDir: 'palen1x/'
-          remoteDir: '/palera1n/artifacts/palen1x/release'
+          draft: true
+          files: work/*.iso
+
+      - name: Release files to github
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.8
+          prerelease: false
+          name: Latest Palen1x Release
+          body: |
+           palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
+           palen1x-i686.iso: palen1x for 32-bit computers
+           palen1x-aarch64.iso: palen1x for 64-bit ARM computers
+          files: |
+            work/palen1x-amd64.iso
+            work/palen1x-i686.iso
+            work/palen1x-aarch64.iso
+            
