@@ -20,14 +20,15 @@ jobs:
 
       - name: Install qemu-user-static
         run: |
-          sudo apt-get update
+          sudo apt-get update -y
+          sudo apt-get upgrade -y
           sudo apt-get install -y qemu-user-static
 
       - name: Build
         env:
           ARCH: ${{ matrix.arch }}
         run: |
-          sudo -E ./build.sh NIGHTLY
+          sudo -E ./nightlybuild.sh NIGHTLY
 
       - name: Prepare artifact
         run: |
@@ -35,12 +36,6 @@ jobs:
           cp work/*-${{ matrix.arch }}.iso palen1x
           cp work/iso/boot/initramfs.xz palen1x/initramfs-${{ matrix.arch }}.xz
   
-      - name: Draft release
-        uses: softprops/action-gh-release@v0.1.15
-        with:
-          draft: true
-          files: work/*.iso
-
       - name: Release files to github
         uses: softprops/action-gh-release@v1
         with:
@@ -48,11 +43,11 @@ jobs:
           prerelease: false
           name: Latest Nightly Palen1x Release
           body: |
-           palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
-           palen1x-i686.iso: palen1x for 32-bit computers
-           palen1x-aarch64.iso: palen1x for 64-bit ARM computers
+           palen1x-NIGHTLY-amd64.iso: palen1x for 64-bit computers (most people will need this)
+           palen1x-NIGHTLY-i686.iso: palen1x for 32-bit computers
+           palen1x-NIGHTLY-aarch64.iso: palen1x for 64-bit ARM computers
           files: |
-            work/palen1x-amd64.iso
-            work/palen1x-i686.iso
-            work/palen1x-aarch64.iso
+            work/palen1x-NIGHTLY-amd64.iso
+            work/palen1x-NIGHTLY-i686.iso
+            work/palen1x-NIGHTLY-aarch64.iso
             
