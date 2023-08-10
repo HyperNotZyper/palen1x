@@ -193,4 +193,4 @@ find . | cpio -oH newc | xz -C crc32 --x86 -vz9eT$(nproc --all) > ../iso/boot/in
 popd
 
 # ISO creation
-grub-mkrescue -o "palen1x-$ARCH.iso" iso --compress=xz
+grub-mkrescue -o "palen1x-NIGHTLY-$ARCH.iso" iso --compress=xz
