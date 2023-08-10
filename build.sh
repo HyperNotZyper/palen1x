@@ -54,20 +54,20 @@ apt-get install -y --no-install-recommends wget gawk debootstrap mtools xorriso 
 if [ "$1" = "RELEASE" ]; then
     case "$ARCH" in
         'amd64')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.3-x86_64.tar.gz'
-            PALERA1N="https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.7/palera1n-linux-x86_64"
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.3-x86_64.tar.gz'
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-x86_64"
             ;;
         'i686')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.3-x86.tar.gz'
-            PALERA1N="https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.7/palera1n-linux-x86"
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86/alpine-minirootfs-3.18.3-x86.tar.gz'
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-x86"
             ;;
         'aarch64')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.3-aarch64.tar.gz'
-            PALERA1N="https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.7/palera1n-linux-arm64"
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64/alpine-minirootfs-3.18.3-aarch64.tar.gz'
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-arm64"
             ;;
         'armv7')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/armv7/alpine-minirootfs-3.17.3-armv7.tar.gz'
-            PALERA1N="https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.7/palera1n-linux-armel"
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7/alpine-minirootfs-3.18.3-armv7.tar.gz'
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-armel"
             ;;
     esac
     echo "INFO: RELEASE CHOSEN"
@@ -81,19 +81,19 @@ elif [ "$1" = "NIGHTLY" ]; then
 
      case "$ARCH" in
         'amd64')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86_64/alpine-minirootfs-3.17.3-x86_64.tar.gz'
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.3-x86_64.tar.gz'
             PALERA1N="https://cdn.nickchan.lol/palera1n/artifacts/c-rewrite/main/$latest_build/palera1n-linux-x86_64"
             ;;
         'i686')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/x86/alpine-minirootfs-3.17.3-x86.tar.gz'
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86/alpine-minirootfs-3.18.3-x86.tar.gz'
             PALERA1N="https://cdn.nickchan.lol/palera1n/artifacts/c-rewrite/main/$latest_build/palera1n-linux-x86"
             ;;
         'aarch64')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/aarch64/alpine-minirootfs-3.17.3-aarch64.tar.gz'
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64/alpine-minirootfs-3.18.3-aarch64.tar.gz'
             PALERA1N="https://cdn.nickchan.lol/palera1n/artifacts/c-rewrite/main/$latest_build/palera1n-linux-arm64"
             ;;
         'armv7')
-            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.17/releases/armv7/alpine-minirootfs-3.17.3-armv7.tar.gz'
+            ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7/alpine-minirootfs-3.18.3-armv7.tar.gz'
             PALERA1N="https://cdn.nickchan.lol/palera1n/artifacts/c-rewrite/main/$latest_build/palera1n-linux-armel"
             ;;
     esac
@@ -119,6 +119,7 @@ cat << ! > rootfs/etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 http://dl-cdn.alpinelinux.org/alpine/edge/community
 http://dl-cdn.alpinelinux.org/alpine/edge/testing
+http://dl-cdn.alpinelinux.org/alpine/edge/main
 !
 
 sleep 2
@@ -126,13 +127,15 @@ sleep 2
 cat << ! | chroot rootfs /usr/bin/env PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin /bin/sh
 apk update
 apk upgrade
-apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt
+apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt dbus
 apk add --no-scripts linux-lts linux-firmware-none
+apk add iwd wpa_supplicant linux-firmware wayland
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
 rc-update add udev-trigger
 rc-update add udev-settle
+rc-update add iwd boot && rc-update add dbus boot
 !
 
 # kernel modules
