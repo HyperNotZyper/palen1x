@@ -129,7 +129,7 @@ apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt dbus
 apk add --no-scripts linux-lts linux-firmware-none
-apk add iwd wpa_supplicant linux-firmware wayland
+apk add iwd wpa_supplicant linux-firmware wayland nano neofetch
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
