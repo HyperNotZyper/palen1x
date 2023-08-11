@@ -130,6 +130,9 @@ apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt dbus
 apk add --no-scripts linux-lts linux-firmware-none
 apk add iwd wpa_supplicant linux-firmware wayland nano neofetch
+apk add elogind polkit-elogind
+apk add gvfs udisks2
+apk add adwaita-icon-theme
 setup-xorg-base
 apk add xfce4 xfce4-terminal xfce4-screensaver lightdm-gtk-greeter d
 rc-update add bootmisc
