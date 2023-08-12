@@ -134,7 +134,7 @@ apk add elogind polkit-elogind
 apk add gvfs udisks2
 apk add adwaita-icon-theme
 setup-xorg-base
-apk add xfce4 xfce4-terminal xfce4-screensaver lightdm-gtk-greeter d
+apk add xfce4 xfce4-terminal xfce4-screensaver lightdm-gtk-greeter
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
