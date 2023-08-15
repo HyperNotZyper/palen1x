@@ -27,9 +27,8 @@ while true; do
     '2' 'SSH' \
     '3' 'Shell' \
     '4' 'Shut down' \
-    '5' 'Desktop (only for Extended)' \
-    '6' 'Exit recovery' \
-    '7' 'Reboot' 3>&1 1>&2 2>&3)"
+    '5' 'Exit recovery' \
+    '6' 'Reboot' 3>&1 1>&2 2>&3)"
   case "$CHOICE" in
     1)
       clear
@@ -50,10 +49,6 @@ while true; do
       ;;
     5)
       clear
-      startx
-      ;;
-    6)
-      clear
       /usr/bin/palera1n -n
       sleep 2
       echo ""
@@ -61,7 +56,7 @@ while true; do
       enter_to_quit
       /usr/bin/palen1x_menu
       ;;
-    7)
+    6)
       palen1x_logo
       sleep 2
       /sbin/reboot
