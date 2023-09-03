@@ -44,9 +44,9 @@ jobs:
       - name: Release files to github
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.8
+          tag_name: Stable
           prerelease: false
-          name: Latest Palen1x Release
+          name: Latest Stable Palen1x Release
           body: |
            It will take sometime to boot, Don't worry about that.
           
