@@ -119,7 +119,7 @@ cat << ! > rootfs/etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 http://dl-cdn.alpinelinux.org/alpine/edge/community
 http://dl-cdn.alpinelinux.org/alpine/edge/testing
-http://dl-cdn.alpinelinux.org/alpine/v3.18/main
+http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
 !
 
 sleep 2
