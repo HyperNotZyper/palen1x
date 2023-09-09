@@ -49,7 +49,6 @@ jobs:
           name: Latest Stable Palen1x Release
           body: |
            It will take sometime to boot, Don't worry about that.
-           DOES NOT WORK ON VENTOY!
           
            palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
            palen1x-i686.iso: palen1x for 32-bit computers
