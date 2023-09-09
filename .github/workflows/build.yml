@@ -47,9 +47,7 @@ jobs:
           tag_name: Stable
           prerelease: false
           name: Latest Stable Palen1x Release
-          body: |
-           It will take sometime to boot, Don't worry about that.
-          
+          body: |          
            palen1x-amd64.iso: palen1x for 64-bit computers (most people will need this)
            palen1x-i686.iso: palen1x for 32-bit computers
            palen1x-aarch64.iso: palen1x for 64-bit ARM computers
