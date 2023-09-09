@@ -1,4 +1,4 @@
-I changed one thing in this :)
+This is good :)
 <p align="center">
     <img src="https://cdn.discordapp.com/attachments/1017854329887129611/1068174531048513596/Palen1x.png" alt="logo" width="250">
 </p>
