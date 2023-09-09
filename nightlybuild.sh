@@ -55,19 +55,19 @@ if [ "$1" = "RELEASE" ]; then
     case "$ARCH" in
         'amd64')
             ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.3-x86_64.tar.gz'
-            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-x86_64"
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.7/palera1n-linux-x86_64"
             ;;
         'i686')
             ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86/alpine-minirootfs-3.18.3-x86.tar.gz'
-            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-x86"
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.7/palera1n-linux-x86"
             ;;
         'aarch64')
             ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/aarch64/alpine-minirootfs-3.18.3-aarch64.tar.gz'
-            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-arm64"
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.7/palera1n-linux-arm64"
             ;;
         'armv7')
             ROOTFS='https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7/alpine-minirootfs-3.18.3-armv7.tar.gz'
-            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.8/palera1n-linux-armel"
+            PALERA1N="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.7/palera1n-linux-armel"
             ;;
     esac
     echo "INFO: RELEASE CHOSEN"
