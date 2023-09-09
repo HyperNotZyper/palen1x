@@ -50,7 +50,7 @@ jobs:
           prerelease: false
           name: Latest Nightly Palen1x Release
           body: |
-           It will take sometime to boot, Don't worry about that.
+           If it doesn't work use the stable version
           
            palen1x-NIGHTLY-amd64.iso: palen1x for 64-bit computers (most people will need this)
            palen1x-NIGHTLY-i686.iso: palen1x for 32-bit computers
