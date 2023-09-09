@@ -1,3 +1,4 @@
+I changed one thing in this :)
 <p align="center">
     <img src="https://cdn.discordapp.com/attachments/1017854329887129611/1068174531048513596/Palen1x.png" alt="logo" width="250">
 </p>
@@ -44,7 +45,7 @@ To change the version of palen1x, either change `version` file, or manually spec
 Execute these commands on a Debian-based system.
 
 ```sh
-git clone https://github.com/palera1n/palen1x.git
+git clone https://github.com/HyperNotZyper/palen1x.git
 cd palen1x
 sudo ./build.sh
 ```
