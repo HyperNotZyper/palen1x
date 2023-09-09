@@ -119,7 +119,7 @@ cat << ! > rootfs/etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/v3.12/main
 http://dl-cdn.alpinelinux.org/alpine/edge/community
 http://dl-cdn.alpinelinux.org/alpine/edge/testing
-http://dl-cdn.alpinelinux.org/alpine/edge/main
+http://dl-cdn.alpinelinux.org/alpine/v3.18/main
 !
 
 sleep 2
@@ -129,7 +129,7 @@ apk update
 apk upgrade
 apk add bash alpine-base usbmuxd ncurses udev openssh-client sshpass newt dbus
 apk add --no-scripts linux-lts linux-firmware-none
-apk add iwd wpa_supplicant linux-firmware wayland nano neofetch
+apk add iwd wpa_supplicant linux-firmware
 rc-update add bootmisc
 rc-update add hwdrivers
 rc-update add udev
